@@ -12,9 +12,9 @@ Until the bundle size is reduced ([as part of v7 of the SDK](https://github.com/
 
 # Usage
 
-Use `LazySentry` instead of `@sentry/browser` or `@sentry/react` in your code.
-
-Call `init` at some appropriate time, such as after your app has loaded all its main code, or in a `requestIdleCallback` callback.
+- Use `LazySentry` instead of `@sentry/browser` or `@sentry/react` in your code.
+- Call `init` at some appropriate time, such as after your app has loaded all its main code, or in a `requestIdleCallback` callback.
+- If you want to use more features from Sentry, add them to `LazySentryImports` then add wrappers for them in `LazySentry`.
 
 # Support
 
