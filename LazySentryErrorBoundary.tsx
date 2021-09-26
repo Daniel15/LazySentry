@@ -45,7 +45,17 @@ export class LazySentryErrorBoundary extends React.Component<Props, State> {
     }
 
     // Just put it in the queue for the basic Sentry error logging
-    captureException(error);
+    const componentError = new Error(error.message);
+    componentError.name = `React ErrorBoundary ${componentError.name}`;
+    componentError.stack = errorInfo.componentStack;
+    (error as any).cause = componentError;
+    captureException(error, {
+      contexts: {
+        react: {
+          componentStack: errorInfo.componentStack,
+        },
+      },
+    });
     this.setState({
       error,
       componentStack: errorInfo.componentStack,
