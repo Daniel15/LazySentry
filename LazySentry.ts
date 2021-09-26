@@ -42,7 +42,11 @@ export function init(options: BrowserOptions) {
   window.onunhandledrejection = (e: PromiseRejectionEvent) =>
     rejectionQueue.push(e);
 
-  import('./LazySentryImports').then(Sentry => {
+  import(
+    /* webpackChunkName: "sentry" */
+    /* webpackPreload: true */
+    './LazySentryImports'
+  ).then(Sentry => {
     window.onerror = oldOnError;
     window.onunhandledrejection = oldOnUnhandledRejection;
     Sentry.init({
