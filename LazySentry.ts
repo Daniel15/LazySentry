@@ -1,9 +1,8 @@
 // https://d.sb/lazysentry
 
 import type {BrowserOptions} from '@sentry/browser';
-type SentryImportType = typeof import('./LazySentryImports');
-
 import {onSentryLoaded as onSentryLoadedForErrorBoundary} from './LazySentryErrorBoundary';
+type SentryImportType = typeof import('./LazySentryImports');
 
 let queue: Array<(sentry: SentryImportType) => void> = [];
 let errorQueue: Array<Parameters<OnErrorEventHandlerNonNull>> = [];
