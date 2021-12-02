@@ -16,6 +16,10 @@ Until the bundle size is reduced ([as part of v7 of the SDK](https://github.com/
 - Call `init` at some appropriate time, such as after your app has loaded all its main code, or in a `requestIdleCallback` callback.
 - If you want to use more features from Sentry, add them to `LazySentryImports` then add wrappers for them in `LazySentry`.
 
+# Example
+
+This code snippet is used in the Sentry initialisation code on dnstools.ws: https://github.com/Daniel15/dnstools/blob/master/src/DnsTools.Web/ClientApp/src/index.tsx. The LazySentry repo is configured as a Git submodule. 
+
 # Support
 
 There is no warranty nor any support provided for the code in this repository.
